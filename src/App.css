@@ -1,0 +1,19 @@
+.App__main-part {
+    display: flex;
+    margin-left: 290px;
+}
+@media (max-width: 1500px) {
+    .App__main-part {
+        margin-left: 70px;
+    }
+}
+@media (max-width: 980px) {
+    .App__main-part {
+        margin-left: 10px;
+    }
+}
+@media (max-width: 670px) {
+    .App__main-part {
+        margin-left: -15px;
+    }
+}

@@ -1,0 +1,32 @@
+
+@media (max-width: 1450px) {
+    .RightSidebar {
+        display: none;
+    }
+}
+.backRectangle {
+    width: 490px;
+    height: 149px;
+    background: #262A2F;
+}
+.animeImg {
+    width: 104px;
+    height: 162px;
+    border-radius: 4px;
+    background: #36393E;
+    margin-top: -80px;
+}
+.animeInfo {
+    margin-top: 20px;
+    margin-left: 12px;
+}
+.animeName {
+    font-size: 30px;
+    font-weight: 600;
+}
+.animeGenre {
+    margin-top: -20px;
+    color: #71757A;
+    font-size: 18px;
+    font-weight: 500;
+}

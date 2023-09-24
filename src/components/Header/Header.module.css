@@ -1,0 +1,39 @@
+.header {
+    margin: 21px 0 0px 0;
+    padding-bottom: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid #262A2F;
+}
+.input {
+    padding-left: 21px;
+    width: 750px;
+    height: 67px;
+    color: #71757A;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    border-radius: 10px;
+    background: #262A2F;
+    outline: none;
+    color: white;
+}
+@media (max-width: 880px) {
+    .input {
+        width: 650px;
+        height: 67px;
+    }
+}
+@media (max-width: 700px) {
+    .input {
+        width: 450px;
+        height: 67px;
+    }
+}
+.logo {
+    font-family: Sen;
+    font-size: 48px;
+}

@@ -1,0 +1,28 @@
+.LeftSidebar {
+    max-width: 186px;
+    padding-right: 80px;
+}
+@media (max-width: 670px) {
+    .LeftSidebar {
+        padding-right: 30px;
+    }
+}
+.list {
+    margin-top: 37px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.item {
+    display: inline;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    list-style-type: none;
+    color: #71757A;
+    cursor: pointer;
+}
+.item:first-child {
+    color: #FFFFFF;
+}

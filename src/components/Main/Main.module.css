@@ -1,0 +1,31 @@
+.main {
+    height: 100%;
+    max-width: 900px;
+    border-left: 1px solid #262A2F;
+    padding: 0px 0px 0px 25px;
+}
+.title {
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.list {
+    margin-left: -37px;
+    display: flex;
+    column-gap: 20px;
+    row-gap: 10px;
+    flex-wrap: wrap;
+}
+.item {
+    box-sizing: border-box;
+    list-style-type: none;
+    width: 200px;
+    height: 312px;
+    border-radius: 8px;
+    background: rgba(196, 196, 196, 0.10);    
+    cursor: pointer;
+}
+.item:hover {
+    border: 3px solid #17B890;
+}
