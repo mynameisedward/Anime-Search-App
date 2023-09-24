@@ -21,6 +21,10 @@
     outline: none;
     color: white;
 }
+.logo {
+    font-family: Sen;
+    font-size: 48px;
+}
 @media (max-width: 880px) {
     .input {
         width: 650px;
@@ -33,7 +37,19 @@
         height: 67px;
     }
 }
-.logo {
-    font-family: Sen;
-    font-size: 48px;
+@media (max-width: 500px) {
+    .input {
+        width: 250px;
+        height: 67px;
+    }
+    .logo {
+        font-size: 40px;
+    }
 }
+@media (max-width: 350px) {
+    
+    .logo {
+        font-size: 35px;
+    }
+}
+
