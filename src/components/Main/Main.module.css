@@ -23,8 +23,12 @@
     width: 200px;
     height: 312px;
     border-radius: 8px;
-    background: rgba(196, 196, 196, 0.10);    
     cursor: pointer;
+}
+.animeCover {
+    width: 200px;
+    height: 312px;
+    border-radius: 8px;
 }
 .item:hover {
     border: 3px solid #17B890;
