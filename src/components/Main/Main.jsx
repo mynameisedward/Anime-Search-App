@@ -1,41 +1,53 @@
 import React, { useEffect, useState } from 'react'
 import s from './Main.module.css'
-import { useLocation } from 'react-router'
+import { useLocation, useParams, useSearchParams } from 'react-router-dom'
 import axios from 'axios'
-
+import loader from '../../assets/loader.gif'
 
 const Main = (props) => {
 
-
+    
     const location = useLocation()
+    const [searchParams, setSearchParams] = useSearchParams();
+    const q = searchParams.get('q')
 
     const[items, setItems] =  useState([])
 
-    useEffect(() => {
-        if(location.pathname == '/anime') {
-            axios.get('https://api.jikan.moe/v4/top/anime')
+    const renderTopItems = (name) => {
+        axios.get(`https://api.jikan.moe/v4/top/${name}`)
             .then(response => {
                 console.log(response)
                 setItems(response.data.data)
-            })
-            console.log('рендерим аниме')
-        } else if(location.pathname == '/manga') {
-            axios.get('https://api.jikan.moe/v4/top/manga')
-            .then(response => {
-                console.log(response)
-                setItems(response.data.data)
-            })
-            console.log('рендерим мангу')
-        }
-    }, location.pathname)
+        })
+    }
+    
+    
 
+    useEffect(() => {
+        if(q) {
+            axios.get(`https://api.jikan.moe/v4/anime?q=${q}&rating=pg13`)
+            .then(response => {
+                console.log(response)
+                setItems(response.data.data)
+        })
+        } else if(location.pathname == '/anime') {
+            renderTopItems('anime')
+        } else if(location.pathname == '/manga') {
+            renderTopItems('manga')
+        }
+    }, [window.location.href] )
+
+    window.urll = window.location.href
 
     return (
         <div className={s.main}>
-            <h2 className={s.title}>{props.name}</h2>
+            {q ? 
+                <h2 className={s.title}>Searh by query: {q}</h2> : 
+                <h2 className={s.title}>{props.name}</h2>
+            }
             <ul className={s.list}>
-                {items.map(item => <li className={s.item} key={item}> 
-                    <img alt='Anime Cover' src={item.images.jpg.large_image_url} className={s.animeCover} />
+                {items.map(item => <li className={s.item} key={item.mal_id}> 
+                    <img alt='Anime Cover' src={item.images.webp.large_image_url} className={s.animeCover} /> 
                 </li>)}
             </ul>
         </div>
