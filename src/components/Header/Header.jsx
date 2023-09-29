@@ -1,19 +1,22 @@
 import React, {useState} from 'react'
 import s from './Header.module.css'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 
 const Header = () => {
 
     const [inputValue, setInputValue] = useState('')
 
+    const location = useLocation()
 
     const navigate = useNavigate()
 
     const onFormSubmit = (e) => {
         e.preventDefault();
-        return navigate(`/anime?q=${inputValue}`)
+        return navigate(`${location.pathname}?q=${inputValue}`)
     }
+
+    window.pname = location.pathname
 
     return (
         <div className={s.header}>

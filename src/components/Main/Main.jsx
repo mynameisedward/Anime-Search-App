@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import s from './Main.module.css'
 import { useLocation, useParams, useSearchParams } from 'react-router-dom'
 import axios from 'axios'
-import loader from '../../assets/loader.gif'
 
 const Main = (props) => {
 
@@ -25,7 +24,9 @@ const Main = (props) => {
 
     useEffect(() => {
         if(q) {
-            axios.get(`https://api.jikan.moe/v4/anime?q=${q}&rating=pg13`)
+            location.pathname == '/anime' ?
+                axios.get(`https://api.jikan.moe/v4/anime?q=${q}&rating=pg13`) :
+                axios.get(`https://api.jikan.moe/v4/manga?q=${q}&sfw=true`) 
             .then(response => {
                 console.log(response)
                 setItems(response.data.data)
@@ -42,7 +43,7 @@ const Main = (props) => {
     return (
         <div className={s.main}>
             {q ? 
-                <h2 className={s.title}>Searh by query: {q}</h2> : 
+                <h2 className={s.title}>Search {location.pathname}/ by query: {q}</h2> : 
                 <h2 className={s.title}>{props.name}</h2>
             }
             <ul className={s.list}>
