@@ -7,13 +7,17 @@ const Header = () => {
 
     const [inputValue, setInputValue] = useState('')
 
+    let submitValue = ''
+
     const location = useLocation()
 
     const navigate = useNavigate()
 
     const onFormSubmit = (e) => {
         e.preventDefault();
-        return navigate(`${location.pathname}?q=${inputValue}`)
+        submitValue = inputValue
+        setInputValue('')
+        return navigate(`${location.pathname}?q=${submitValue}`) 
     }
 
     window.pname = location.pathname
