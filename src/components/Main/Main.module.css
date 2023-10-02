@@ -49,3 +49,8 @@
         margin-left: 10px;
     }
 }
+.notFoundText {
+    margin: 150px 0px 0px 190px;
+    font-size: 60px;
+    color: aqua;
+}

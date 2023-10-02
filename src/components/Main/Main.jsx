@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import s from './Main.module.css'
-import { useLocation, useParams, useSearchParams } from 'react-router-dom'
+import { Link, redirect, useLocation, useParams, useSearchParams } from 'react-router-dom'
 import axios from 'axios'
 import Skeleton, {SkeletonTheme} from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
@@ -59,6 +59,7 @@ const Main = (props) => {
     }, [window.location.href] )
 
     window.urll = window.location.href
+    window.items = items
 
     return (
         <div className={s.main}>
@@ -66,16 +67,17 @@ const Main = (props) => {
                 <h2 className={s.title}>Search {location.pathname}/ by query: {q}</h2> : 
                 <h2 className={s.title}>{props.name}</h2>
             }
-            <SkeletonTheme baseColor="#202020" highlightColor="#444">
                     
                     <ul className={s.list}>
-                        {!isLoading && items.map(item => <li className={s.item} key={item.url}> 
-                            <img alt='Anime Cover' src={item.images.webp.large_image_url} className={s.animeCover} /> 
-                        </li>)}
-                        {isLoading && skeletonRenderArr.map(item => <Skeleton width={200} height={312}/>)}
+                        {!isLoading && items.map(item => <Link to={`${location.pathname}/details/${item.mal_id}`} className={s.item} key={item.url}> 
+                            <img alt='Title Cover' src={item.images.webp.large_image_url} className={s.animeCover} /> 
+                        </Link>)}
+                        <SkeletonTheme baseColor="#202020" highlightColor="#444">
+                            {isLoading && skeletonRenderArr.map(item => <Skeleton width={200} height={312}/>)}
+                        </SkeletonTheme>
                     </ul>
+                    {q && items.length == 0 ? <h1 className={s.notFoundText}>Not found{('  :(')} </h1> : <h1></h1>}
                     
-            </SkeletonTheme>
         </div>
     )
 }

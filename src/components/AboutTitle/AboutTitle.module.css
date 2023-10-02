@@ -1,0 +1,42 @@
+.aboutTitle {
+    margin-top: 90px;
+}
+.firstRow {
+    display: flex;
+    gap: 40px;
+}
+.image {
+    width: 270px;
+    height: 404px;
+    border-radius: 14px;
+}
+.list {
+    margin-left: -40px;
+}
+.item {
+    color: rgb(150, 149, 149);
+    list-style-type: none;
+    font-size: 20px;
+    line-height: 30px;
+}
+.item span {
+    color: white;
+}
+.title {
+    font-size: 45px;
+}
+.japaneseTitle {
+    color: rgb(150, 149, 149);
+    margin-top: -20px;
+}
+.synopsisDiv {
+    /* margin-top: ; */
+}
+.synopsisTitle {
+    line-height: 10px;
+    font-size: 35px;
+}
+.synopsis {
+    width: 1300px;
+    font-size: 18px;
+}
